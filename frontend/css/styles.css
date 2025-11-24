@@ -1,0 +1,8 @@
+
+body { font-family: Arial, sans-serif; background:#0a2433; color:#fff; margin:0; padding:0;}
+.container{max-width:420px;margin:60px auto;padding:24px;background:#08202a;border-radius:8px;}
+input, button {display:block;width:100%;padding:8px;margin:8px 0;border-radius:4px;border:1px solid #ccc;}
+header{background:#06262f;padding:12px;}
+main{padding:20px;}
+section{background:#072a34;padding:12px;margin-bottom:12px;border-radius:6px;}
+button{cursor:pointer;}
