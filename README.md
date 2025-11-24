@@ -1,89 +1,137 @@
-AI-Powered Fraud Detection System
+# Protec-X
 
-A full-stack Java application designed to detect financial fraud in real-time using Machine Learning heuristics. This system features a dual-dashboard architecture for Admins and Users, complying with high-security banking standards.
+Protec-X is an **AI-powered real-time fraud detection system**, built with Java, that helps fintech companies detect suspicious financial transactions and anomalous behavior. It has separate dashboards for administrators and users, follows secure design principles, and supports multithreading to perform continuous monitoring.
 
-🚀 Features
+---
 
-Real-Time Detection: Analyzes transactions instantly upon entry.
+## Features
 
-Admin Dashboard: Visualize threats, configure thresholds, and manage alerts.
+- **Real-time transaction analysis** — Every transaction is evaluated as soon as it's submitted.  
+- **Admin Dashboard** — Configure fraud-detection thresholds, view alerts, and manage risk settings.  
+- **User Dashboard** — Users can view their transaction history, risk scores, and security status.  
+- **Multithreading** — Background threads monitor the database for fraud patterns or anomalies.  
+- **Role-based access** — Secure login system for admins and regular users.  
+- **Anomaly detection** — Heuristics/rules built into the engine to flag potential fraud.
 
-User Dashboard: View transaction history and security status.
+---
 
-Multithreading: Background threads monitor database for anomaly patterns.
+## Architecture
 
-Role-Based Access: Secure login for different user types.
+- **Pattern**: MVC (Model-View-Controller)  
+- **Frontend**: HTML5, CSS3 (including Dark Mode), Vanilla JavaScript  
+- **Backend**: Java Servlets, JDBC for database operations, Multithreading for monitoring  
+- **Database**: MySQL  
 
-🏗 System Architecture
+---
 
-The system follows the MVC (Model-View-Controller) pattern:
+## Setup & Installation
 
-Frontend: HTML5, CSS3 (Dark Mode), Vanilla JS.
+1. **Database Setup**  
+   - Use **MySQL**: Import the SQL schema from `database/schema.sql`.  
+   - This sets up the `fraud_detection_db` and populates sample users and transactions.
 
-Backend: Java Servlets, JDBC, Multithreading.
+2. **Configure JDBC**  
+   - In `backend/src/main/resources/database.properties`, update the `db.password` field to match your MySQL password.
 
-Database: MySQL Relational DB.
+3. **Running the Backend via VS Code or IDE**  
+   - Open the `backend` folder.  
+   - Ensure that you have the Java Web / Tomcat or Servlet support extensions/plugins installed.  
+   - Right-click on `pom.xml` to update Maven dependencies, if needed.  
+   - Deploy the project on a local Tomcat server or run it as a Java web application.  
+   - Access the application at: `http://localhost:8080/`
 
-Workflow: Configuration -> Detection -> Optimization.
+4. **Optional: Run the Monitor Logic Without UI**  
+   - Open `src/main/java/com/frauddetector/Main.java`.  
+   - Run the `main` method, and observe logs like `“Real-time Monitoring Started…”` in the console.
 
-🛠 Prerequisites for VS Code
+---
 
-Java Extension Pack: (Red Hat)
+## Project Structure
 
-Extension Pack for Java Web Development: (Includes Tomcat adapter)
+```
+.
+├── backend
+│   ├── pom.xml
+│   ├── src
+│   │   └── main
+│   │       ├── java
+│   │       │   └── com
+│   │       │       └── frauddetector
+│   │       │           ├── Main.java
+│   │       │           ├── dao
+│   │       │           │   ├── DBConnection.java
+│   │       │           │   ├── TransactionDAO.java
+│   │       │           │   └── UserDAO.java
+│   │       │           ├── model
+│   │       │           │   ├── Transaction.java
+│   │       │           │   └── User.java
+│   │       │           ├── services
+│   │       │           │   ├── AlertService.java
+│   │       │           │   ├── FraudDetectionService.java
+│   │       │           │   └── MLAnomalyDetector.java
+│   │       │           ├── servlets
+│   │       │           │   ├── AdminServlet.java
+│   │       │           │   ├── AuthServlet.java
+│   │       │           │   └── TransactionServlet.java
+│   │       │           └── threads
+│   │       │               └── RealTimeMonitorThread.java
+│   │       └── resources
+│   │           └── database.properties
+│   └── target
+│       └── classes
+│           ├── com
+│           │   └── frauddetector
+│           │       ├── Main.class
+│           │       ├── dao
+│           │       │   ├── DBConnection.class
+│           │       │   ├── TransactionDAO.class
+│           │       │   └── UserDAO.class
+│           │       ├── model
+│           │       │   ├── Transaction.class
+│           │       │   └── User.class
+│           │       ├── services
+│           │       │   ├── AlertService.class
+│           │       │   ├── FraudDetectionService.class
+│           │       │   └── MLAnomalyDetector.class
+│           │       ├── servlets
+│           │       │   ├── AdminServlet.class
+│           │       │   ├── AuthServlet.class
+│           │       │   └── TransactionServlet.class
+│           │       └── threads
+│           │           └── RealTimeMonitorThread.class
+│           └── database.properties
+├── database
+│   └── schema.sql
+└── frontend
+    ├── admin.html
+    ├── css
+    │   └── styles.css
+    ├── index.html
+    ├── js
+    │   └── scripts.js
+    └── user.html
+```
 
-MySQL Server: Installed locally.
+## Prerequisites
 
-MySQL Extension: For database management inside VS Code.
+- Java JDK (version 8 or above)  
+- Apache Tomcat (or any compatible servlet container)  
+- MySQL Server  
+- Maven / Build tool for Java  
 
-⚙️ Setup & Installation
+---
 
-1. Database Setup
+## Contributors / Maintainer
 
-Open MySQL Workbench or VS Code MySQL client.
+- **Sarthak** — Project Creator & Maintainer  
+- Contributions are welcome! Feel free to open issues, suggest features, or submit pull requests.
 
-Run the script located at database/schema.sql.
+---
 
-This creates the fraud_detection_db and populates it with sample users/transactions.
+## License
 
-2. Configure JDBC
+This project is **MIT-licensed** (or choose your preferred license).  
 
-Navigate to backend/src/main/resources/database.properties.
+---
 
-Update db.password with your local MySQL password.
-
-3. Running in VS Code
-
-Open the backend folder in VS Code.
-
-Ensure the Tomcat for Java extension is active.
-
-Right-click on the pom.xml file -> Update Project.
-
-Locate the Tomcat Servers view in the sidebar.
-
-Right-click the server -> Add War Package -> Select the generated .war file (or point to the folder).
-
-Right-click -> Start.
-
-Open browser at http://localhost:8080/.
-
-4. Running the Main Monitor (Optional)
-
-To test the backend logic without the UI:
-
-Open src/main/java/com/frauddetector/Main.java.
-
-Click "Run" above the main method.
-
-Observe the console for "Real-time Monitoring Started..." logs.
-
-📊 Rubric Compliance
-
-OOP: Uses abstract User class and polymorphic getDashboardUrl.
-
-Collections: ArrayList used in DAO layer for transaction fetching.
-
-Multithreading: RealTimeMonitorThread runs parallel to the web server.
-
-DB Integration: Full CRUD operations via JDBC PreparedStatement.
+Thank you for checking out **Protec-X**! If you use this in a real or demo fintech environment, I’d love to hear your feedback / see your improvements.  
