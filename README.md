@@ -1,17 +1,17 @@
 # Protec-X
 
-Protec-X is an **AI-powered real-time fraud detection system**, built with Java, that helps fintech companies detect suspicious financial transactions and anomalous behavior. It has separate dashboards for administrators and users, follows secure design principles, and supports multithreading to perform continuous monitoring.
+Protec-X is an **AI-powered real-time fraud detection system**, built with Java, that helps to detect suspicious financial transactions and anomalous behavior. It has separate dashboards for administrators and users, follows secure design principles, and supports multithreading to perform continuous monitoring.
 
 ---
 
 ## Features
 
-- **Real-time transaction analysis** — Every transaction is evaluated as soon as it's submitted.  
-- **Admin Dashboard** — Configure fraud-detection thresholds, view alerts, and manage risk settings.  
-- **User Dashboard** — Users can view their transaction history, risk scores, and security status.  
-- **Multithreading** — Background threads monitor the database for fraud patterns or anomalies.  
-- **Role-based access** — Secure login system for admins and regular users.  
-- **Anomaly detection** — Heuristics/rules built into the engine to flag potential fraud.
+- **Real-time transaction analysis**: Every transaction is evaluated as soon as it's submitted.  
+- **Admin Dashboard**: Configure fraud-detection thresholds, view alerts, and manage risk settings.  
+- **User Dashboard**: Users can view their transaction history, risk scores, and security status.  
+- **Multithreading**: Background threads monitor the database for fraud patterns or anomalies.  
+- **Role-based access**: Secure login system for admins and regular users.  
+- **Anomaly detection**: Heuristics/rules built into the engine to flag potential fraud.
 
 ---
 
@@ -123,7 +123,7 @@ Protec-X is an **AI-powered real-time fraud detection system**, built with Java,
 
 ## Contributors / Maintainer
 
-- **Sarthak** — Project Creator & Maintainer  
+- **Sarthak816** — Project Creator & Maintainer  
 - Contributions are welcome! Feel free to open issues, suggest features, or submit pull requests.
 
 ---
