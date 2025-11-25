@@ -130,7 +130,7 @@ Protec-X is an **AI-powered real-time fraud detection system**, built with Java,
 
 ## License
 
-This project is **MIT-licensed** (or choose your preferred license).  
+This project is **MIT-licensed**  
 
 ---
 
