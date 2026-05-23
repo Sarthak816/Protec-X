@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: protec-x-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root123}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ai_fraud_db}
+      MYSQL_USER: ${MYSQL_USER:-frauddetector}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-fraud_pass123}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - mysql_data:/var/lib/mysql
+    networks:
+      - protec-x-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Tomcat Web Server (Application)
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: protec-x-app
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-ai_fraud_db}
+      DB_USER: ${MYSQL_USER:-frauddetector}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-fraud_pass123}
+      CATALINA_OPTS: ${CATALINA_OPTS:--Xms512m -Xmx2048m}
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./backend/src/main/resources/database.properties:/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/database.properties
+    networks:
+      - protec-x-network
+    restart: unless-stopped
+
+networks:
+  protec-x-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

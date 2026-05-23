@@ -1,0 +1,13 @@
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/Main.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/dao/DBConnection.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/dao/TransactionDAO.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/dao/UserDAO.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/model/Transaction.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/model/User.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/services/AlertService.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/services/FraudDetectionService.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/services/MLAnomalyDetector.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/servlets/AdminServlet.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/servlets/AuthServlet.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/servlets/TransactionServlet.java
+/home/runner/work/Protec-X/Protec-X/backend/src/main/java/com/frauddetector/threads/RealTimeMonitorThread.java

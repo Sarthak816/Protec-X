@@ -1,0 +1,13 @@
+com/frauddetector/services/MLAnomalyDetector.class
+com/frauddetector/dao/UserDAO.class
+com/frauddetector/dao/TransactionDAO.class
+com/frauddetector/model/Transaction.class
+com/frauddetector/threads/RealTimeMonitorThread.class
+com/frauddetector/servlets/TransactionServlet.class
+com/frauddetector/Main.class
+com/frauddetector/model/User.class
+com/frauddetector/services/FraudDetectionService.class
+com/frauddetector/dao/DBConnection.class
+com/frauddetector/servlets/AuthServlet.class
+com/frauddetector/servlets/AdminServlet.class
+com/frauddetector/services/AlertService.class
