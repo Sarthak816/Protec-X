@@ -26,9 +26,29 @@ Protec-X is an **AI-powered real-time fraud detection system**, built with Java,
 
 ## Setup & Installation
 
+### Quick Start (Docker - Recommended)
+
+The easiest way to get started:
+
+```bash
+# Clone the repository
+git clone https://github.com/Sarthak816/Protec-X.git
+cd Protec-X
+
+# Copy environment configuration (optional)
+cp .env.example .env
+
+# Start the application with Docker Compose
+docker-compose up -d
+
+# Access at http://localhost:8080/
+```
+
+### Traditional Setup (Tomcat + MySQL)
+
 1. **Database Setup**  
    - Use **MySQL**: Import the SQL schema from `database/schema.sql`.  
-   - This sets up the `fraud_detection_db` and populates sample users and transactions.
+   - This sets up the `ai_fraud_db` and populates sample users and transactions.
 
 2. **Configure JDBC**  
    - In `backend/src/main/resources/database.properties`, update the `db.password` field to match your MySQL password.
@@ -42,7 +62,17 @@ Protec-X is an **AI-powered real-time fraud detection system**, built with Java,
 
 4. **Optional: Run the Monitor Logic Without UI**  
    - Open `src/main/java/com/frauddetector/Main.java`.  
-   - Run the `main` method, and observe logs like `“Real-time Monitoring Started…”` in the console.
+   - Run the `main` method, and observe logs like `"Real-time Monitoring Started…"` in the console.
+
+### Deployment
+
+For comprehensive deployment instructions, see **[DEPLOYMENT.md](./DEPLOYMENT.md)**:
+- Docker & Docker Compose deployment
+- Traditional Tomcat deployment
+- Kubernetes deployment
+- Environment configuration
+- Production considerations
+- Troubleshooting guide
 
 ---
 
