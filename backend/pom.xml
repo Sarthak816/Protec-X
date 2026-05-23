@@ -46,6 +46,19 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.2</version>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>${project.basedir}/../frontend</directory>
+              <targetPath>/</targetPath>
+              <includes>
+                <include>**/*.html</include>
+                <include>**/*.css</include>
+                <include>**/*.js</include>
+              </includes>
+            </resource>
+          </webResources>
+        </configuration>
       </plugin>
       <!-- Jetty plugin for development (optional) -->
       <plugin>

@@ -12,9 +12,9 @@ public class TransactionDAO {
     public List<Transaction> getRecentPendingTransactions(int limit) throws SQLException {
         String sql = "SELECT id,userId,amount,timestamp,status FROM transactions WHERE status='PENDING' ORDER BY timestamp DESC LIMIT ?";
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
             ps.setInt(1, limit);
-            ResultSet rs = ps.executeQuery();
             List<Transaction> list = new ArrayList<>();
             while (rs.next()) {
                 Transaction t = new Transaction();
